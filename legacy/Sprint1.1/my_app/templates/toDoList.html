@@ -1,0 +1,81 @@
+{% import "macros.html" as macros %}
+{% extends "home.html" %}
+
+{% block task %}
+
+
+<div>
+
+  <!-- Removed for now will have own window later
+  <h4>Total : {{ nb_tot }}</h4>
+  <h4>Remaining : {{ nb_toDo }}</h4>
+  -->
+    
+  <div id="ToDoListId">
+
+      <div class="scroll">
+        <table class = "table">
+          <thead>
+          <tr>
+            <th>Status<span><a class="fa fa-question-circle-o" href="/helperMessage/1" role="button"></a></span></th>
+            <th>Name</th>
+            <th>PokerScore
+              <span><a class="fa fa-question-circle-o" href="/helperMessage/0" role="button"></a></span>
+            </th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            {% for task in toDo_list %}
+            <tr>
+              <!-- State -->
+              <td>
+                {% if task.status == 0 %}
+                <a class="btn btn-success" href="/check_uncheck/{{ task.id }}" role="button">ToDo</a>
+                {% elif task.status == 1 %}
+                <a class="btn btn-outline-success" href="/check_uncheck/{{ task.id }}" role="button">Doing</a>
+                {%else%}
+                <a class="btn btn-outline-success" href="/check_uncheck/{{ task.id }}" role="button">Done</a>
+                {% endif %}
+              </td>
+
+              <!-- Task -->
+              <td>
+                <div class="popup" onclick="checklistPopup({{task.id}})" style = "color:blue">{{ task.name }}
+                  <span class="popuptext" id="{{ task.id }}">{{ task.description }}</span>
+                </div>
+              </td>
+              <!-- Due Date 
+              <td>{{ task.due }}</td>
+              -->
+              
+              <!-- Poker score -->
+              <td>
+                <!-- Modify -->
+                <p>{{task.pokerScore}}</p>
+              </td>
+
+
+              <!-- Actions -->
+              <td>
+                <!-- Modify -->
+                <a class="button" href="/modify/{{ task.id }}" role="button" >Modify</a>
+                <!-- Delete Only for admin-->
+                {%if admin == False%}
+                <a class="btn btn btn-outline-danger" href="/delete/{{ task.id }}" role="button">Delete</a>
+                {%endif%}
+              </td>
+                
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
+  </div>
+
+
+
+</div>
+
+{% endblock %}

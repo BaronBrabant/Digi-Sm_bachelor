@@ -1,0 +1,71 @@
+{% import "macros.html" as macros %}
+{% extends "timeline.html" %}
+
+{% block pokerScoreHelp %}
+
+<div class="container p-2" id="statusHelper" style="color: black">  
+
+    <a style="font-size:24px" href="/" role = "button" class="fa fa-close btn" > </a>
+
+    <div id="textHelper"> 
+        <h3>Poker score to evaluate a task</h3>
+        <p>The Poker score is a technique to be able to determin the difficulty of a task through a team consensus.</p>
+        <p>During the start of a sprint the team will get together and evaluate the tasks given with the fibonacci sequence.</p>
+        <p>Everyone picks a score and they are revealed once everyone has made their choice. </p>
+        <p>Based upon this everyones results are discussed and the process is repeated until a concensus is reached.</p>
+    </div>
+      
+</div>
+
+{% endblock %}
+
+{% block statusHelp %}
+
+<div class="container p-4" id="statusHelper" style="color: black;">  
+
+    <a style="font-size:24px" href="/" role = "button" class="fa fa-close btn" > </a>
+
+    <div id="textHelper"> 
+        <h3>Status help screen</h3>
+        <p>The status represents the state of the task. The status can have 3 states. To do, done or doing.</p>
+        <p>This allows the team to organise and adapt the sprint according to the work of their colleagues</p>
+    </div>
+      
+</div>
+
+{% endblock %}
+
+{% block sprintHelp %}
+
+<div class="container p-4" id="statusHelper" style="color: black;">  
+
+    <a style="font-size:24px" href="/" role = "button" class="fa fa-close btn" > </a>
+
+    <div id="textHelper"> 
+        <h3>What is a Sprint?</h3>
+        <p>A Sprint is a short timespan ranging from weeks to a couple months at most usually.</p>
+        <p>During this timeframe the team completes a set amount of work determined by picking and evaluating user stories.</p>
+        <p>Furthermore during this timespan the team meets regularly for scrums, usually every other day, in order to discuss the progress.</p>
+        <p>Once the sprint is over the team will have a meeting to discuss what went well and what could be improved.</p>
+    </div>
+      
+</div>
+
+{% endblock %}
+
+{% block firstTimeHelp %}
+
+<div class="container p-4" id="statusHelper" style="color: black;">   
+
+    <div id="textHelper"> 
+        <h3>Welcome to the agile methodology!</h3>
+        <p>This is your first step and as you can see there is nothing on the website yet.</p>
+        <p>To use it properly you'll need to list your user stories by clicking the button at the top in the navigation bar.</p>
+        <p>You should ideally create your user stories all at once but you can also add them as you go along.</p>
+        <p>Once you're done with that you can click on the button to create a new sprint and fill it with the user stories you've just created!</p>
+        <p>Once you've created your first user story we'll let you get along!</p>
+    </div>
+      
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+
+<!--Deprecated, replaced by team.html-->
+
+{% block userOnProject %}
+
+<div class="container p-4">
+  <h1>Users List</h1>
+  
+  <div class="container p-3">
+    <table class="table">
+      <thead>
+        <tr>
+            <th>Username</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for user in user_list %}
+        <tr>
+          <!-- Username -->
+          <td>{{ user.username }}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

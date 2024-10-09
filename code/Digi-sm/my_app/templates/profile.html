@@ -1,0 +1,49 @@
+{% extends "home.html" %}
+
+{% block profileView %}
+
+<div class="container p-4" style="color: rgba(33, 33, 33, 10);">
+  <h1 style="color: rgba(33, 33, 33, 10);">Users Info</h1>
+  
+  <div class="mb-3 mt-3" >
+    <label for="task">Profile:</label>
+  </div>
+
+  <form action="/profile" method="POST">
+  <div class="mb-3 mt-3">
+    <label>Name:</label>
+    <input type="text" class="form-control" id="name" name="name" pattern="[a-z0-9._%+- ]{1,100}" placeholder="{{ user_info.name }}" value="{{ user_info.name }}"/>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label>First name:</label>
+    <input type="text" class="form-control" id="firstname" name="firstname" pattern="[a-z0-9._%+- ]{1,100}" placeholder="{{ user_info.firstname }}" value="{{ user_info.firstname }}"/>
+  </div>
+
+  
+  <p>Password changer:</p>
+  {% if errorPassword != None%}
+   <p>{{errorPassword}}</p>
+  {% endif %}
+  <div class="mb-3 mt-3">
+    <label>New password:</label>
+    <input type="password" class="form-control" id="passwd" name="passwd" minlength="6" pattern="[a-z0-9._%+- ]{1,100}" />
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label>Password confirmation:</label>
+    <input type="password" class="form-control" id="passwd_confirm" name="passwd_confirm" minlength="6" pattern="[a-z0-9._%+- ]{1,100}" />
+  </div>
+
+  <!-- Submit -->
+  <div class="mb-3 mt-3">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+  </div>
+
+  
+
+
+</form>
+</div>
+
+{% endblock %}

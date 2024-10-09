@@ -1,0 +1,119 @@
+{%extends "timeline.html"%}
+
+
+{%block chart%}
+
+<div>
+
+  <div id="Charts" >
+
+      <canvas id = "pieChart" style ="width:250%; max-width: 700x; display:none"></canvas>
+      <canvas id = "burnDownChart" style ="width:250%; max-width: 700x"></canvas>
+      <!---->
+      
+      
+    <div style="text-align:center">
+        <span class="dotClickable" id="burnDownChartButton" style="background-color: aqua"></span>
+        <span class="dotClickable" id="pieChartButton"></span>
+    </div>
+      
+      
+  </div>
+
+</div>
+
+<script>
+
+
+  //this script loads and creates the burn down chart
+  var xdates = {{creationDate|tojson}};
+
+  var yValues = {{points|tojson}};
+
+  new Chart("burnDownChart", {
+  type: "line",
+  data: {
+      labels: xdates,
+      datasets: [{
+      label: "Actual pace",
+      backgroundColor: "rgba(0,0,0,1)",
+      borderColor: "rgba(33, 33, 33, 10)",
+      data: yValues,
+      fill:false
+      }]
+    },
+  options: {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    },
+    title: {
+      display: true,
+      text: "Burn down chart"
+    },
+    legend: {
+      display:true
+    }
+  }
+  });
+
+  //this script loads and creates the pie chart of the sprint
+
+  var xValues = ["Done", "To Do", "Doing"];
+  var yValues = [{{nb_tot-nb_toDo-nb_Doing}}, {{nb_toDo}}, {{nb_Doing}}];
+  var barColors = [
+    "#b91d47",
+    "#00aba9",
+    "#2b5797",
+  ];
+  
+  new Chart("pieChart", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Sprint task data"
+      }
+    }
+  });
+ 
+
+  jQuery(document).ready(function() {
+    $("#pieChartButton").on('click', function(){
+
+        $("#burnDownChartButton").css({"background-color": "#bbb"});
+        $("#pieChartButton").css({"background-color": "aqua"});
+        $("#burnDownChart").hide();
+        $("#pieChart").show();
+        $("#Charts").css({"width": "48%","height": "53.2%"});
+        //$("#Charts").css({"position": "absolute","right": "8%","top": "50%","border": "3px solid #73AD21","display": "show"});
+        //$("#pieChart").css({"width":"250%", "max-width": "700x"});
+      
+    });
+  });
+
+  jQuery(document).ready(function() {
+      $("#burnDownChartButton").on('click', function(){
+          
+          $("#burnDownChartButton").css({"background-color": "aqua"});
+          $("#pieChartButton").css({"background-color": "#bbb"});
+          $("#burnDownChart").show();
+          $("#pieChart").hide();
+          $("#Charts").css({"width": "48%","height": "53.2%"});
+     
+      });
+  });
+
+</script>
+
+{%endblock%}

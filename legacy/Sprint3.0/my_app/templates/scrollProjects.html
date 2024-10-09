@@ -1,0 +1,52 @@
+{% extends "projectChoice.html"%}
+
+
+{% block projectsScroll %}
+
+<div class="scrollProjects">
+        <table class = "table">
+        <thead>
+        <tr style="color: rgba(33, 33, 33, 10);">
+            <th>Project Name<span></th>
+            <th>Description</th>
+            <th>Creation date</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr onclick="window.location='/choose_project/{{ project.id }}'" role="button" style="color: rgba(33, 33, 33, 10);">
+                <!-- Project name -->
+                <td>
+                    {{project.name}}
+                </td>
+
+                <!-- Description -->
+                <td>
+                    {{project.description}}
+                </td>
+                <!-- Due Date -->
+
+                <td>
+                    {{ project.creation }}
+                </td>
+                
+                
+                <!-- Status -->
+                <td>
+                    {% if project.status == True %}
+                    <a class="btn btn-success" role="button" aria-disabled="true">Ongoing<span><a class="btn btn-primary" href="/finishProject/{{ project.id }}" role="button">Finish</a></span></a>
+                    {%else%}
+                    <a class="btn btn-outline-danger" role="button" aria-disabled="true">Finished<span><a class="btn btn-primary" href="/finishProject/{{ project.id }}" role="button">Resume</a></span>
+                    {% endif %}
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+            
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+
+{% block modify%}
+
+<div class="container p-3">
+  <h3>Modify task</h3>
+  <form action="/modify/{{ task_id }}" method="POST">
+    <!-- Task -->
+    <div class="mb-3 mt-3">
+      <label for="task">Task:</label>
+      <input type="text" class="form-control" id="name" name="name" required minlength="1" pattern="[a-z0-9._%+- ]{1,100}" placeholder="{{ nameTask }}" value="{{ nameTask }}"/>
+    </div>
+    <!-- Description -->
+    <div class="mb-3 mt-3">
+      <label>Description:</label>
+      <input type="text" class="form-control" id="description" name="description" pattern="[a-z0-9._%+- ]{1,100}" placeholder="{{ nameDescr }}" value="{{ nameDescr }}"/>
+    </div>
+    <!-- Due Date -->
+    <div class="mb-3 mt-3">
+      <label>Due Date:</label>
+      <input type="date" id="time-date" name="time-date" data-date-format="DD-MM-YYYY" class = 'form-control' format="dd/mm/yyyy" placeholder="DD-MM-YYYY">
+    </div>
+    <!-- Submit -->
+    <div class="mb-3 mt-3">
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

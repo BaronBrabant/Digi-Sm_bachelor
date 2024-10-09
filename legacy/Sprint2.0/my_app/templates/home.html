@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static',filename='css/styling.css') }}" type = "text/css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src = "{{url_for('static', filename='Main.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Digi-SM</a>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/newTask">New UserStory</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/create_sprint">Create New Sprint</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/team">Team</a>
+            </li>
+            <li>
+              <a class = "nav-link" href="/redirectProjects">Projects</a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#" class="notification">
+                <i class="bells fa fa-bell"  style="font-size:19px"></i>
+                <span badge = "number" style="color:white">3</span>
+              </a> 
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link" href="/profile">Profile</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link" href="/logout">Log-out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+
+    {%block timeline%}
+    {%endblock%}
+
+    
+    {% block chart%}
+    {%endblock%}  
+
+    {% block modifProfile %}
+    {% endblock %}
+
+    {% block modify%}
+    {% endblock %}
+
+    {% block task%}
+    {% endblock %}
+
+    {% block sprint %}
+    {%endblock%}
+
+
+    {% block adminView%}
+    {% endblock %}
+
+
+    {% block profileView%}
+    {% endblock %}
+
+    {%if messageId == 0%}
+      {% block pokerScoreHelp%}
+      {% endblock %}
+    {% elif messageId == 1%} 
+      {% block statusHelp%}
+      {% endblock %}
+    {%endif%}
+
+    
+
+  </body>
+  
+</html>

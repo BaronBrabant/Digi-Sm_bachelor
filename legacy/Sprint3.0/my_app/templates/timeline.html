@@ -1,0 +1,71 @@
+{% extends "charts.html" %}
+
+{%block timeline%}
+
+
+<ul id='timeline'>
+
+  {% if sprints != []  %}
+    {% if sprintOrder[0] != 1 %}
+    <li class="last">
+      <div class="rectangle">
+        <a class="nav-link" onclick="sendNewOrderBackend();loadSprints({{sprintOrder[-1]}}, 'back')">Previous sprints</a>
+      </div>
+    </li>
+    {%endif%}
+  {%endif%}
+  
+  {% for sprint in sprints%}
+    {% if loop.index%2==0 %}
+      <li class='event up'>
+        <div class='content'>
+          {% if currentSprint == sprint.id %}
+          <div class="avatar" style = "background:#C1E1C1;color: rgba(33, 33, 33, 10);"><a class="nav-link" onclick="sendNewOrderBackend()" href="/load_sprint/{{sprint.id}}">Sprint {{sprintOrder[loop.index-1]}}</a></div>
+          {%else%}
+          <div class="avatar" style="color: rgba(33, 33, 33, 10);"><a class="nav-link" onclick="sendNewOrderBackend()" href="/load_sprint/{{sprint.id}}">Sprint {{sprintOrder[loop.index-1]}}</a></div>
+          {%endif%}
+        </div>
+      
+        <div class="dot">
+          <span class='circle'></span>
+        </div>
+        <div class='date' style="color: rgba(33, 33, 33, 10);">{{sprint.creation}}</div>
+      </li>
+    {%else%}
+      <li class='event down'>
+        <div class='content'>
+          {% if currentSprint == sprint.id %}
+          <div class="avatar" style = "background:#C1E1C1;color: rgba(33, 33, 33, 10);"><a class="nav-link" onclick="sendNewOrderBackend()" href="/load_sprint/{{sprint.id}}">Sprint {{sprintOrder[loop.index-1]}}</a></div>
+          {%else%}
+          <div class="avatar" style="color: rgba(33, 33, 33, 10);"><a class="nav-link" onclick="sendNewOrderBackend()" href="/load_sprint/{{sprint.id}}">Sprint {{sprintOrder[loop.index-1]}}</a></div>
+          {%endif%}
+        </div>
+        <!--<li><a class="nav-link" href="/profile">Profile</a></li>-->
+        <div class="dot">
+          <span class='circle'></span>
+        </div>
+        <div class='date' style="color: rgba(33, 33, 33, 10);">{{sprint.creation}}</div>
+      </li>
+    {%endif%}
+
+  {%endfor%}
+
+  <li class="last">
+    <div class="rectangle">
+      {% if sprints != []  %}
+        {% if lastSprint == True %}
+        <a class="nav-link" onclick="sendNewOrderBackend();loadSprints({{sprintOrder[-1]}}, 'forward')">Later sprints</a>
+        {%else%}
+        Future sprints <span><a class="fa fa-question-circle-o" href="/helperMessage/3" role="button" onclick="sendNewOrderBackend();"></a></span>
+        {%endif%}
+      {% else %}
+        Future sprints
+      {%endif%}
+    </div>
+  </li>
+</ul>
+
+
+
+
+{%endblock%}

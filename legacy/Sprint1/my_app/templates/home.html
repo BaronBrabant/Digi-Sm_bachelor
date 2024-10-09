@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/styling.css') }}" type = "text/css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src = "Main.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      function modify_value(id) {
+        if (id == 'username'){
+          val = prompt("Please enter your new username");
+          return window.location = "/modify_username/" + val;
+        }else if (id == 'name'){
+          val = prompt("Please enter your new name");
+          return window.location = "/modify_name/" + val;
+        }else if (id == 'firstname'){
+          val = prompt("Please enter your new firstname");
+          return window.location = "/modify_firstname/" + val;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">To Do List</a>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Tasks list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/newTask">New task</a>
+            </li>
+            {% if admin == True %}
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">Users list</a>
+            </li>
+            {%endif%}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link" href="/profile">Profile</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link" href="/logout">Log-out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    {% block modifProfile %}
+    {% endblock %}
+
+    {% block task%}
+    {% endblock %}
+
+    {% if admin == True %}
+      {% block adminView%}
+      {% endblock %}
+    {%endif%}
+
+    {% block profileView%}
+    {% endblock %}
+
+  </body>
+  <script>
+    // When the user clicks on div, open the popup
+    function checklistPopup(id) {
+      var popup = document.getElementById(id);
+      console.log(popup)
+      popup.classList.toggle("show");
+    }
+
+    function helperButton(){
+      var popup = document.getElementById(helperBut11);
+      console.log(popup)
+      popup.classList.toggle("show");
+    }
+    </script>
+  
+</html>

@@ -1,0 +1,1 @@
+This folder contains the planning of the project including the transcript of the meetings, the gantt chart and a diagram of the database.

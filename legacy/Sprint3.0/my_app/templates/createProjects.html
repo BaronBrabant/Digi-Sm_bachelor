@@ -1,0 +1,34 @@
+{% extends "projectChoice.html" %}
+
+{% block projectsCreation %}
+
+
+
+<div class="container p-3" style="color: rgba(33, 33, 33, 10);">
+    <h4>Add a new Project</h4>
+    <form action="/createProject" method="post">
+      <!-- Task -->
+      <div class="mb-3 mt-3">
+        <label for="task">Project Name:</label  >
+        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required minlength="1" pattern="[a-z0-9._%+- ]{1,100}" />
+      </div>
+      <!-- Description -->
+      <div class="mb-3 mt-3">
+        <label>Description :</label>
+        <input type="text" class="form-control" id="description" placeholder="Description of the project" name="description" pattern="[a-z0-9._%+- ]{1,100}" />
+      </div>
+
+      <div class="mb-3 mt-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a type="Cancel" class="btn btn-secondary" href="/redirectProjects">Cancel</a>
+      </div>
+
+    </form>
+  </div>
+
+  
+
+</div>
+  
+  
+  {% endblock %}

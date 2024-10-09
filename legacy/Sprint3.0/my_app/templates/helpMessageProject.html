@@ -1,0 +1,50 @@
+{% import "macros.html" as macros %}
+{% extends "scrollProjects.html" %}
+
+
+{% block newUserIntro %}
+
+<div class="container p-2" id="helperProjects" style="color: black">  
+
+
+    <div id="textHelper"> 
+        <h3>You have 0 Projects so...</h3>
+        <h3>Welcome to the website!</h3>
+        <p>Digital Scrum Master is a website designed to help you organise your projects
+           and to follow the agile programming methodology!</p>
+        <p>If you're familiar with the technique feel free to get going and use the website!
+           If that's not the case don't worry! There are plenty of help icons around the website to help you get started!
+        </p> 
+        <p>For now if you want to play around with the website lets get you to making your first project by clicking the new project
+           button!
+           <a class="btn btn-dark" href="/createProject" role="button">Create Project</a>
+        </p>
+    </div>
+      
+</div>
+
+{% endblock %}
+
+
+
+{% block projectHelper %}
+
+<div class="container p-2" id="helperProjects" style="color: black">  
+
+    <a style="font-size:24px" href="/redirectProjects" role = "button" class="fa fa-close btn" > </a>
+
+    <div id="textHelper"> 
+        <h3>New Project</h3>
+        <p>The project follows the agile methodology. Once you'll have created your first project you'll be able to create 
+           your first user stories. Once you've created your user stories you can go ahead and create your first sprint by
+           selecting which user stories you want to include in the sprint.
+        </p>
+        <p>But for now enough talking, the best way to learn is to do! So lets get you to creating a project by clicking the new project
+           button on the top left of your screen and then watch the navigation bar at the top to create your user stories and sprint!
+        </p>
+    </div>
+      
+</div>
+
+{% endblock %}
+

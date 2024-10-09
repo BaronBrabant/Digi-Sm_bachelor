@@ -1,0 +1,114 @@
+{% extends "home.html" %}
+
+{% block teamView %}
+
+<div class="container p-4" >
+  
+  <h1 style="color: rgba(33, 33, 33, 10);">Add user to project</h1>
+  
+  <div class="container p-3">
+    <form action="/addUserProjectByUsername" method="post">
+      <div class="mb-3 mt-3">
+        <input type="text" class="form-control" autocomplete="false" id="username" placeholder="Username of member you would like to add" name="username hidden" pattern="[a-z0-9._%+- ]{1,100}" />
+      </div>
+
+      <div class="mb-3 mt-3">
+        <button type="submit" class="btn btn-primary">Send request</button>
+      </div>
+      
+      <p style="color:black;">{{ response }}</p>
+    </form>
+    
+  </div>
+
+  <h1 style="color: rgba(33, 33, 33, 10);">Team Members <span><a class="fa fa-question-circle-o" href="/helperMessage/6" role="button"></a></span></h1>
+  
+  
+  <div class="container p-3">
+    <table class="table">
+      <thead>
+        <tr style="color: rgba(33, 33, 33, 10);">
+          {%if admin == True%}
+            <th>Action</th>
+          {% endif %}
+          <th>Username</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for user in user_list %}
+        <tr style="color: rgba(33, 33, 33, 10);">
+          <!-- Actions -->
+          {%if admin == True%}
+          <td>
+            <!-- If not an admin -->
+            
+              {% if user.id == currentUser %}
+              
+              {% else %}
+                {% if user.blocked == True%}
+                <a class="btn btn-danger" href="/bloc_user/{{ user.id }}" role="button">Unblock</a>
+                {% else %}
+                <a class="btn btn-outline-danger" href="/bloc_user/{{ user.id }}" role="button">Block</a>
+                {% endif %}
+              {% endif %}
+
+              {% if user.id == currentUser %}
+              <button class="btn btn-dark" onclick="ownAdminDemotionAlert()" role="button">Admin</button>
+              {% elif user.group == True%}
+              <a class="btn btn-dark" href="/change_group/{{ user.id }}" role="button">Admin</a>
+              {% else %}
+              <a class="btn btn-outline-dark" href="/change_group/{{ user.id }}" role="button">Normal</a>
+              {% endif %}
+            
+          </td>
+          {% endif %}
+          <!-- Username -->
+          <td>{{ user.username }}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+
+  <h1 style="color: rgba(33, 33, 33, 10);">Friends List</h1>
+  
+    
+
+    <div class="container p-3">
+
+        <table class="table">
+        <thead>
+            <tr style="color: rgba(33, 33, 33, 10);">
+            <th>Action</th>
+            <th>Username</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in friends %}
+            <tr>
+            <!-- Actions -->
+            <td>
+                {% if user[0] == '0' %}
+                User already on project
+                {% elif user[0] == '1' %}
+                <a class="btn btn-success" id="button" role="button">Invite Sent</a>
+                {% else%}
+                <a class="btn btn-success" id="button" onclick="inviteFriendButton({{user[1].id}})" role="button">Add to Project</a>
+                {% endif %}
+            </td>
+            
+            <!-- Username -->
+            <td>{{ user[1].username }}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+        </table>
+    </div>
+
+  
+
+</div>
+
+{% endblock %}

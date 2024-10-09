@@ -1,0 +1,68 @@
+{% extends "home.html" %}
+
+{% block adminView %}
+
+<div class="container p-4">
+  
+  <h1>Add user to project</h1>
+  
+  <div class="container p-3">
+    <form action="/addUserProjectByUsername" method="post">
+      <div class="mb-3 mt-3">
+        <input type="text" class="form-control" autocomplete="off" id="username" placeholder="Username of member you would like to add" name="username" pattern="[a-z0-9._%+- ]{1,100}" />
+      </div>
+
+      <div class="mb-3 mt-3">
+        <button type="submit" class="btn btn-primary">Send request</button>
+      </div>
+      
+      <p style="color:black;">{{ response }}</p>
+    </form>
+    
+  </div>
+
+  <h1>Users List</h1>
+  
+  <div class="container p-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for user in user_list %}
+        <tr>
+          <!-- Actions -->
+          <td>
+            <!-- If not an admin -->
+            {%if user.group == False%}
+              {% if user.blocked == True%}
+              <a class="btn btn-danger" href="/bloc_user/{{ user.id }}" role="button">Unblock</a>
+              {% else %}
+              <a class="btn btn-outline-danger" href="/bloc_user/{{ user.id }}" role="button">Block</a>
+              {% endif %}
+            {%endif%}
+
+            {% if user.id == currentUser %}
+            <button class="btn btn-dark" onclick="ownAdminDemotionAlert()" role="button">Admin</button>
+            {% elif user.group == True%}
+            <a class="btn btn-dark" href="/change_group/{{ user.id }}" role="button">Admin</a>
+            {% else %}
+            <a class="btn btn-outline-dark" href="/change_group/{{ user.id }}" role="button">Normal</a>
+            {% endif %}
+   
+          </td>
+        
+          <!-- Username -->
+          <td>{{ user.username }}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "home.html" %}
+
+{% block modify%}
+
+<div class="container p-3" style="color: rgba(33, 33, 33, 10);">
+  <h3>Modify task</h3>
+  <form action="/modify/{{ task_id }}" method="POST">
+    <!-- Task -->
+    <div class="mb-3 mt-3">
+      <label for="task">Task:</label>
+      <input type="text" class="form-control" id="name" name="name" required minlength="1" pattern="[a-z0-9._%+- ]{1,100}" placeholder="{{ nameTask }}" value="{{ nameTask }}"/>
+    </div>
+    <!-- Description -->
+    <div class="mb-3 mt-3">
+      <label>Description:</label>
+      <input type="text" class="form-control" id="description" name="description" pattern="[a-z0-9._%+- ]{1,100}" placeholder="{{ nameDescr }}" value="{{ nameDescr }}"/>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <!--
+      <label>Poker Score:</label>
+      <input type="text" class="form-control" id="pokerScore" placeholder="Enter complexity 1 to 89" name="pokerScore" pattern="[a-z0-9._%+- ]{1,100}" />
+      -->
+      <div class="mb-3 mt-3">
+        <label>Poker Score:</label>
+        <input type="text" class="form-control" id="pokerScore" value="{{pokerScore}}" name="pokerScore" required minlength="1" pattern="[0-9]+" maxlength="2" />
+      </div>
+      {% for int in pokerPlan%}
+      <div class="form-check form-check-inline">
+    
+        <label class="form-check-label" for="pokerScore">{{int}}</label>
+      </div>
+      {%endfor%}
+    </div>
+    <!-- Submit -->
+    <div class="mb-3 mt-3">
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

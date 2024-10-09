@@ -1,0 +1,29 @@
+
+{% macro render_field(field, field_id) %}
+<div class="form-group">
+    <label for="{{field_id}}">{{field.label}}</label>
+    {{field(class='form-control')}}
+</div>
+{% endmacro %}
+
+{% macro render_field_empty() %}
+<div class="form-group">
+    {{field(class='form-control')}}
+</div>
+{% endmacro %}
+
+{% macro render_date(field) %}
+<div class="form-group">
+    <label>Birthday:</label>
+    <input type="date" id="time-date" name="time-date">
+</div>
+{% endmacro %}
+
+
+{% macro show_form_errors(form) %}
+{% for field, errors in form.errors.items() %}
+{% for error in errors %}
+<p>{{form[field].label}} : {{ error }}</p>
+{% endfor %}
+{% endfor %}
+{% endmacro %}

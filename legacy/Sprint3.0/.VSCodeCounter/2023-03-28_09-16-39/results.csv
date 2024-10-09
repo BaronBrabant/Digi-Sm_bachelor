@@ -1,0 +1,39 @@
+"filename", "language", "Python", "pip requirements", "Ini", "Markdown", "HTML", "JavaScript", "CSS", "comment", "blank", "total"
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\README.md", "Markdown", 0, 0, 0, 40, 0, 0, 0, 0, 8, 48
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\config.py", "Python", 14, 0, 0, 0, 0, 0, 0, 2, 7, 23
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\__init__.py", "Python", 12, 0, 0, 0, 0, 0, 0, 2, 10, 24
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\forms.py", "Python", 48, 0, 0, 0, 0, 0, 0, 3, 19, 70
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\login_manager.py", "Python", 11, 0, 0, 0, 0, 0, 0, 0, 7, 18
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\models.py", "Python", 155, 0, 0, 0, 0, 0, 0, 64, 58, 277
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\routes.py", "Python", 610, 0, 0, 0, 0, 0, 0, 426, 340, 1376
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\static\Main.js", "JavaScript", 0, 0, 0, 0, 0, 131, 0, 37, 68, 236
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\static\css\styling.css", "CSS", 0, 0, 0, 0, 0, 0, 230, 17, 47, 294
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\charts.html", "HTML", 0, 0, 0, 0, 91, 0, 0, 1, 27, 119
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\createProjects.html", "HTML", 0, 0, 0, 0, 21, 0, 0, 2, 11, 34
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\error.html", "HTML", 0, 0, 0, 0, 16, 0, 0, 0, 5, 21
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\friends.html", "HTML", 0, 0, 0, 0, 46, 0, 0, 2, 25, 73
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\helpMessage.html", "HTML", 0, 0, 0, 0, 20, 0, 0, 0, 14, 34
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\home.html", "HTML", 0, 0, 0, 0, 99, 0, 0, 0, 19, 118
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\login.html", "HTML", 0, 0, 0, 0, 18, 0, 0, 0, 7, 25
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\loginWindow.html", "HTML", 0, 0, 0, 0, 18, 0, 0, 0, 3, 21
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\macros.html", "HTML", 0, 0, 0, 0, 24, 0, 0, 0, 6, 30
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\modify.html", "HTML", 0, 0, 0, 0, 30, 0, 0, 7, 5, 42
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\modifyProfile.html", "HTML", 0, 0, 0, 0, 11, 0, 0, 0, 4, 15
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\newTask.html", "HTML", 0, 0, 0, 0, 54, 0, 0, 7, 18, 79
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\notifications.html", "HTML", 0, 0, 0, 0, 47, 0, 0, 2, 13, 62
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\profile.html", "HTML", 0, 0, 0, 0, 34, 0, 0, 1, 14, 49
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\projectChoice.html", "HTML", 0, 0, 0, 0, 36, 0, 0, 5, 16, 57
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\register.html", "HTML", 0, 0, 0, 0, 20, 0, 0, 0, 8, 28
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\scrollProjects.html", "HTML", 0, 0, 0, 0, 37, 0, 0, 4, 11, 52
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\sprintCreation.html", "HTML", 0, 0, 0, 0, 52, 0, 0, 10, 15, 77
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\team.html", "HTML", 0, 0, 0, 0, 78, 0, 0, 5, 24, 107
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\timeline.html", "HTML", 0, 0, 0, 0, 58, 0, 0, 1, 12, 71
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\toDoList.html", "HTML", 0, 0, 0, 0, 50, 0, 0, 21, 17, 88
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\my_app\templates\userOnProject.html", "HTML", 0, 0, 0, 0, 22, 0, 0, 1, 5, 28
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\pytest.ini", "Ini", 0, 0, 3, 0, 0, 0, 0, 0, 1, 4
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\requirements.txt", "pip requirements", 0, 5, 0, 0, 0, 0, 0, 0, 1, 6
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\run.py", "Python", 12, 0, 0, 0, 0, 0, 0, 1, 9, 22
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\tests\unit\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\tests\unit\test_model.py", "Python", 82, 0, 0, 0, 0, 0, 0, 7, 35, 124
+"c:\Users\benny\Desktop\Files to backup\UNI\personal project BACHELOR\2223_INFOB318_Digi-SM\code\Sprint3.0\tests\unit\test_routes.py", "Python", 18, 0, 0, 0, 0, 0, 0, 6, 13, 37
+"Total", "-", 962, 5, 3, 40, 882, 131, 230, 634, 903, 3790

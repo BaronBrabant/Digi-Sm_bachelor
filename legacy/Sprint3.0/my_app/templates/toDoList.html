@@ -1,0 +1,111 @@
+{% import "macros.html" as macros %}
+{% extends "home.html" %}
+
+{% block task %}
+
+
+<div>
+
+  <!-- Removed for now will have own window later
+  <h4>Total : {{ nb_tot }}</h4>
+  <h4>Remaining : {{ nb_toDo }}</h4>
+  -->
+    
+  <div id="ToDoListId">
+
+      <div class="scroll" id="adaptable">
+        <table id="table countable" class="table">
+          <thead>
+          <tr style="color: rgba(33, 33, 33, 10);">
+            <th>Status<span><a class="fa fa-question-circle-o" href="/helperMessage/1" role="button"></a></span></th>
+            <th>Description</th>
+            <th>PokerScr
+              <span><a class="fa fa-question-circle-o" href="/helperMessage/0" role="button"></a></span>
+            </th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            {% for task in toDo_list %}
+            <!--draggable='true' ondragstart='start()' ondragover='dragover()' this need to be in tr for alternate sortable
+            row testing-->
+            <tr id = "{{task.id}}" draggable='true' ondragstart='start()' ondragover='dragover()' style="color: rgba(33, 33, 33, 10);">
+              <!-- State -->
+              <td style="width: 20%">
+                {% if task.status == 0 %}
+                <a class="btn btn-success" onclick="sendNewOrderBackend()" href="/check_uncheck/{{ task.id }}" role="button">ToDo</a>
+                {% elif task.status == 1 %}
+                <a class="btn btn-outline-success" onclick="sendNewOrderBackend()" href="/check_uncheck/{{ task.id }}" role="button">Doing</a>
+                {%else%}
+                <a class="btn btn-outline-success" onclick="sendNewOrderBackend()" href="/check_uncheck/{{ task.id }}" role="button">Done</a>
+                {% endif %}
+              </td>
+
+              <!-- Task -->
+              <td style="width: 40%">
+                <p>{{task.description}}</p>
+                <!--
+                <div class="popup" onclick="checklistPopup({{task.id}})" style = "color:blue">{{ task.name }}
+                  <span class="popuptext" id="{{ task.id }}">{{ task.description }}</span>
+                </div>
+                -->
+              </td>
+              <!-- Due Date 
+              <td>{{ task.due }}</td>
+              -->
+              
+              <!-- Poker score -->
+              <td style="width: 15%" >
+                <!-- Modify -->
+                <p>{{task.pokerScore}}</p>
+              </td>
+
+
+              <!-- Actions -->
+              <td style="width:10%">
+                <!-- Modify -->
+                <!--<a class="button" href="/modify/{{ task.id }}" role="button" >Modify</a>-->
+                <a onclick="sendNewOrderBackend()" href="/modify/{{ task.id }}" >
+                  <i class="fa fa-edit"  style="font-size:30px; color : rgba(33, 33, 33, 10)" ></i>
+                </a>
+                <!-- Delete Only for admin
+                {%if admin == False%}
+                <a class="btn btn btn-outline-danger" href="/delete/{{ task.id }}" role="button">Delete</a>
+                {%endif%}
+                -->
+              </td>
+                
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
+  </div>
+
+  
+
+
+
+</div>
+
+<script>
+
+  window.onload = sizeToFather();
+  
+  function sizeToFather() { 
+      var cssHeight = document.getElementById("father").clientHeight;
+      console.log(cssHeight) 
+      var listS = document.getElementById("ToDoListId");
+
+      listS.style.width = "90%";
+  
+      listS.style.height = cssHeight*(1.84) + "px";
+      var scroll = document.querySelector("div.scroll");
+      scroll.style.height = cssHeight*(1.8) + "px";
+  }
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "home.html" %}
+
+{% block notificationView %}
+
+<div class="container p-4">
+  
+  <h1>You've got some mail! </h1>
+  <h1>Joking these are your notifications</h1>
+
+  
+  <div class="container p-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+        {% for notification in notifications %}
+        <tr>
+          <!-- Actions -->
+          <td>
+            {% if notification[0] == 0 %}
+            <p>You've been invited to join {{notification[1]}}</p>
+            {%else%}
+            <p>{{notification[1]}} has sent you a friend request!</p>
+            {%endif%}
+          </td>
+        
+          <!-- Username -->
+          <td>
+            
+            {% if notification[0] == 0 %}
+            <a href="/notification?notif_id={{ notification[1] }}&response=true&type=0" class="notification">
+              <i class="fa fa-check"></i>
+            </a> 
+
+            <a href="/notification?notif_id={{ notification[1] }}&response=false&type=0" class="notification">
+              <i class="fa fa-times"></i>
+            </a> 
+            {%else%}
+            <a href="/notification?notif_id={{ notification[1] }}&response=true&type=1" class="notification">
+              <i class="fa fa-check"></i>
+            </a> 
+
+            <a href="/notification?notif_id={{ notification[1] }}&response=false&type=1" class="notification">
+              <i class="fa fa-times"></i>
+            </a> 
+            {%endif%}
+
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

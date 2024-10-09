@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="container pt-3">
+        <h1>To Do List</h1>
+        <hr>
+
+        <h2>Add or Modify a Task</h2>
+        <form class="form-horizontal" action="/" method="post">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="id">Id:</label>
+                <div class="col-sm-10">
+                    <input type="id" class="form-control" id="id" placeholder="Enter id" name="id" required minlength="1"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="task">Task:</label>
+                <div class="col-sm-10">
+
+                    <input type="text" class="form-control" id="task" placeholder="Enter task" name="task" required minlength="1" pattern="[a-z0-9._%+- ]{1,100}" />
+                    {% if valid == False %}
+                    <p style="color:red">Error: id or task cannot be all spaces</p>
+                    {% endif %}
+
+                </div>
+            </div>
+            <div class="form-group">        
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            <p>*To modify a task, you need to rewrite it by using the same id.</p>
+        </form>
+
+
+        <hr>
+
+        {% if nb_task == 0 %}
+        <h2>No Remaining Tasks</h2>
+        {% elif nb_task == 1 %}
+        <h2>{{ nb_task }} Remaining Task</h2>
+        {% else %}
+        <h2>{{ nb_task }} Remaining Tasks</h2>
+        {% endif %}
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Identifier</th>
+                    <th>Task</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key,task in tasks.items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ task }}</td>
+                    <td>
+                        <a class="btn btn-danger" href="/delete/{{ key }}" role="button">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

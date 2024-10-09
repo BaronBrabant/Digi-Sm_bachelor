@@ -1,0 +1,77 @@
+{% import "macros.html" as macros %}
+{% extends "home.html" %}
+
+{% block task %}
+
+<div class="container p-3">
+  {{macros.remaining_task(nb_tot,nb_toDo)}}
+</div>
+
+{% block modify%} 
+{% endblock %}
+
+
+<div id = "ToDoListId"> <!--style="padding: 10px; border: 2px solid red;"-->
+  
+  <table class="table" id="checklistTitle">
+    <thead>
+      <tr>
+        <th>State</th>
+        <th>Task name</th>
+        <th>Poker score</th>
+        
+        
+      </tr>
+
+      <div class="popup" onclick="helperButton()">Status 
+        <span class="popuptext" id="helperBut11">dddddddddddddddddddddddd</span>
+        <i class="fa fa-question-circle-o"></i>
+      </div>
+
+    </thead>
+  </table>
+
+    
+  <div class ="scroll">
+    <table class="table">
+    <tbody>
+        {% for key,task in tasks.items() %}
+        <tr>
+          <!-- State -->
+          <td>
+            {% if task[1] == True %}
+            <a class="btn btn-success" href="/check_uncheck/{{ key }}" role="button">Done</a>
+            {% else %}
+            <a class="btn btn-outline-success" href="/check_uncheck/{{ key }}" role="button">ToDo</a>
+            {% endif %}
+          </td>
+          <!-- Task -->
+          <td>
+            <div class="popup" onclick="checklistPopup({{key}})">{{ task[0] }}
+              <span class="popuptext" id="{{ key }}">{{task[1]}}</span>
+            </div>
+            <!--<a class="btn btn-success" href="/expand_task/{{ key }}" role="button">{{ task[0] }}</a>-->
+          </td>
+          
+          <!-- Actions -->
+          <td>
+            <!-- Placeholer value for pokerplanning -->
+            <p>11/89</p>
+          </td>
+
+          <td id = "alignStatus">
+            <!-- Placeholer value for status -->
+            <p>Done</p>
+          </td>
+
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+
+{% endblock %}

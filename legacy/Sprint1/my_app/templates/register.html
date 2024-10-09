@@ -1,0 +1,32 @@
+{% extends 'loginWindow.html' %}
+{% import "macros.html" as macros %}
+
+{% block header %}
+<title>Registration</title>
+{% endblock %}
+
+{% block content %}
+<h1>Register</h1>
+
+{{ macros.show_form_errors(form) }}
+
+<form action="{{ url_for('register') }}"  method="post" novalidate>
+    <div class="form-group">
+        {{ form.csrf_token }}
+
+        {{ macros.render_field(form.username, 'username') }}
+        {{ macros.render_field(form.passwd, 'passwd') }}
+        {{ macros.render_field(form.passwd_confirm, 'passwd_confirm') }}
+        {{ macros.render_field(form.firstname, 'firstname') }}
+        {{ macros.render_field(form.name, 'name') }}
+        <div class="form-group">
+            <label>Birthday:</label>
+            <input type="date" id="time-date" name="time-date" data-date-format="DD-MM-YYYY" class = 'form-control' format="dd/mm/yyyy" placeholder="DD-MM-YYYY">
+        </div>
+    
+
+        {{ form.submit(class='mt-4 mx-auto btn btn-primary') }}
+    </div>
+</form>
+
+{% endblock %}

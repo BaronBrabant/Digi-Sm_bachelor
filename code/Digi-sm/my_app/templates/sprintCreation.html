@@ -1,0 +1,78 @@
+{% extends "home.html" %}
+
+{% block sprint %}
+
+<div class="container p-3" >
+    <p style="color: rgba(33, 33, 33, 10);">Keep in mind a sprint is a fixed amount of work, what you add you have to complete in this sprint. Keep to the plan!</p>
+    <p style="color: rgba(33, 33, 33, 10);">Click on the row to select it</p>
+    <div class="scrollOther">
+        <table class="table table-striped" id = "tableUS">
+          <thead>
+          <tr style="color: rgba(33, 33, 33, 10);">
+            <th>Name</th>
+            <th>Description</th>
+            <th>PokerScore</th>
+            
+          </tr>
+          </thead>
+
+          <tbody>
+            {% if sizeList > 0 %}
+              {% for userStories in listUserStories %}
+              <tr id="{{userStories.id}}">
+                <!-- State -->
+              
+
+                <!-- userStories -->
+                <td class="clickable-row" onclick="addToSprint({{userStories.id}})" style = "cursor : pointer ;"> 
+                  <div class="popup" onclick="checklistPopup({{userStories.id}})">{{ userStories.name }}
+                    <span class="popuptext" id="{{ userStories.id }}">{{ userStories.description }}</span>
+                  </div>
+                </td>
+                <!-- Due Date 
+                <td>{{ userStories.due }}</td>
+                -->
+
+                <td class="clickable-row" onclick="addToSprint({{userStories.id}})" style="color: rgba(33, 33, 33, 10); cursor:pointer;" style = "cursor : pointer ;"> 
+                  <p>{{userStories.description}}</p>
+
+                </td>
+                
+                <!-- Poker score -->
+                <td class="clickable-row" onclick="addToSprint({{userStories.id}})" style="color: rgba(33, 33, 33, 10); cursor:pointer;" style = "cursor : pointer ;">
+                  <!-- Modify -->
+                  <p>{{userStories.pokerScore}}</p>
+                </td>
+
+
+                <!-- Actions -->
+                
+                  
+              </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="4">Create some more because you're all out of user stories.</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+      {% if sizeList > 0 %}
+        {% if allDone == False%}
+          <span><p style="color: rgba(33, 33, 33, 10);">Are you sure you want to create a new sprint you haven't finshed your last one?</p><input type="button" value="Create Sprint" style="float: right;" onclick="sendListBackend()"></span>
+        {% else %}
+          <input type="button" value="Create Sprint" style="float: right;" onclick="sendListBackend()">
+        {% endif %}
+      {% endif %}
+      
+  </div>
+  
+   
+    
+      
+</div>
+
+
+
+{% endblock %}

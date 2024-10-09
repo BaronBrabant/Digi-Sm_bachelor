@@ -1,0 +1,34 @@
+{% import "macros.html" as macros %}
+{% extends "toDoList.html" %}
+
+{% block pokerScoreHelp %}
+
+<div class="container p-4" id="statusHelper">  
+
+    <a style="font-size:24px" href="/" role = "button" class="fa fa-close btn" > </a>
+
+    <h3>Poker score to evaluate a task</h3>
+    <p>The Poker score is a technique to be able to determin the difficulty of a task through a team consensus.</p>
+    <p>During the start of a sprint the team will get together and evaluate the tasks given with the fibonacci sequence.</p>
+    <p>Everyone picks a score and they are revealed once everyone has made their choice. </p>
+    <p>Based upon this everyones results are discussed and the process is repeated until a concensus is reached.</p>
+
+      
+</div>
+
+{% endblock %}
+
+{% block statusHelp %}
+
+<div class="container p-4" id="statusHelper">  
+
+    <a style="font-size:24px" href="/" role = "button" class="fa fa-close btn" > </a>
+
+    <h3>Status help screen</h3>
+    <p>The status represents the state of the task. The status can have 3 states. To do, done or doing.</p>
+    <p>This allows the team to organise and adapt the sprint according to the work of their colleagues</p>
+
+      
+</div>
+
+{% endblock %}

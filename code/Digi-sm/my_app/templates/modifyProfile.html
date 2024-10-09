@@ -1,0 +1,15 @@
+{% extends "profile.html" %}
+{% import "macros.html" as macros %}
+
+{% block modifProfile %}
+
+<h2>Modify your profile</h2>
+
+
+<form action="{{ url_for('modify_profile') }}"  method="post" novalidate>
+    <div class="form-group">
+        <label>test</label>
+        <input type="text">
+    </div>
+</form>
+{% endblock%}

@@ -1,0 +1,75 @@
+{% extends "home.html" %}
+
+{% block sprint %}
+
+<div class="container p-3">
+
+    <div class="scroll">
+        <table class="table table-striped" id = "tableUS">
+          <thead>
+          <tr>
+            <th>Status<span><a class="fa fa-question-circle-o" href="/helperMessage/1" role="button"></a></span></th>
+            <th>Name</th>
+            <th>PokerScore
+              <span><a class="fa fa-question-circle-o" href="/helperMessage/0" role="button"></a></span>
+            </th>
+            <th>Action</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            {% for userStories in listUserStories %}
+            <tr id="{{userStories.id}}">
+              <!-- State -->
+              <td class="clickable-row" onclick="addToSprint({{userStories.id}})" style = "cursor : pointer ;">
+                {% if userStories.status == 0 %}
+                <a class="btn btn-success" href="/check_uncheck/{{ userStories.id }}" role="button">ToDo</a>
+                {% elif userStories.status == 1 %}
+                <a class="btn btn-outline-success" href="/check_uncheck/{{ userStories.id }}" role="button">Doing</a>
+                {%else%}
+                <a class="btn btn-outline-success" href="/check_uncheck/{{ userStories.id }}" role="button">Done</a>
+                {% endif %}
+              </td>
+
+              <!-- userStories -->
+              <td class="clickable-row" onclick="addToSprint({{userStories.id}})" style = "cursor : pointer ;"> 
+                <div class="popup" onclick="checklistPopup({{userStories.id}})" style = "color:blue">{{ userStories.name }}
+                  <span class="popuptext" id="{{ userStories.id }}">{{ userStories.description }}</span>
+                </div>
+              </td>
+              <!-- Due Date 
+              <td>{{ userStories.due }}</td>
+              -->
+              
+              <!-- Poker score -->
+              <td class="clickable-row" onclick="addToSprint({{userStories.id}})" style = "cursor : pointer ;">
+                <!-- Modify -->
+                <p>{{userStories.pokerScore}}</p>
+              </td>
+
+
+              <!-- Actions -->
+              <td class="clickable-row" onclick="addToSprint({{userStories.id}})" style = "cursor : pointer ;">
+                <!-- Modify -->
+                <a class="button" href="/modify/{{ userStories.id }}" role="button" >Modify</a>
+                <!-- Delete Only for admin-->
+                {%if admin == False%}
+                <a class="btn btn btn-outline-danger" href="/delete/{{ userStories.id }}" role="button">Delete</a>
+                {%endif%}
+              </td>
+                
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <input type="button" value="Add to Sprint" style="float: right;" onclick="sendListBackend()">
+   
+    
+      
+</div>
+
+
+
+{% endblock %}

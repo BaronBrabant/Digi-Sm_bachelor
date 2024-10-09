@@ -1,0 +1,30 @@
+{% import "macros.html" as macros %}
+{% extends "newTask.html" %}
+
+
+{% block newTaskHelp %}
+
+<div class="container p-2" id="userStoryHelper" style="color: black">  
+
+    <a style="font-size:24px" href="/newTask" role = "button" class="fa fa-close btn" > </a>
+
+    <div id="textHelper"> 
+        <h3>User Stories</h3>
+        <p>User stories are the heart of sprints. They allow not only to define the work that has to be done but are
+            also the metrics by which you will be able to gauge the progress of the sprint.
+        </p>
+        <p>User Stories are a general description of a feature that the user wants implemented. But the point of a user story
+           is to put the end-users perspective first. This means that the user story should be written from their point of view
+           in order to develop a product that is tailored to their needs.
+        </p> 
+        <p>Furthermore the user story should be written in a way that is easy to understand and is not too technical.
+           This is because the user story is meant to be understood by the whole team including non-developers.
+           This means that a user story should not be a requirement but rather a description of the feature.
+        </p>
+        <p>An example of this would be: As a team-member I would to be able to mark sprints or tasks as finished, so that I can track the advancement of the project.</p>
+     
+    </div>
+      
+</div>
+
+{% endblock %}

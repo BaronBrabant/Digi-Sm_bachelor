@@ -1,0 +1,25 @@
+{% extends 'loginWindow.html' %}
+{% import 'macros.html' as macros %}
+
+
+{% block content %}
+<h1>Welcome to the Digital Scrum Master webApp</h1>
+<h2>Log-in</h2>
+
+{{ macros.show_form_errors(form) }}
+
+<form action="{{ url_for('login') }}"  method="post" novalidate>
+    <div class="form-group">
+        {{ form.csrf_token }}
+
+        {{ macros.render_field(form.username, 'username') }}
+        {{ macros.render_field(form.passwd, 'passwd') }}
+
+        {{ form.submit(class='mt-4 mx-auto btn btn-primary') }}
+    </div>
+</form>
+
+<hr>
+<h5>Don't have an account yet?</h5>
+<a class="btn btn-primary" href="{{ url_for('register') }}" role="button">Register</a>
+{% endblock %}

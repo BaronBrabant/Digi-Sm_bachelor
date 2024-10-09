@@ -1,0 +1,73 @@
+{% extends "home.html" %}
+
+{% block friends %}
+
+<div class="container p-4">
+    <h1 style="color: rgba(33, 33, 33, 10);">Send Friend Request</h1>
+  
+  <div class="container p-3">
+    <form action="/friends" method="post" autocomplete="off">
+      <div class="mb-3 mt-3">
+        <input type="text" class="form-control" autocomplete="false" id="username" placeholder="Username of user you'd like to befriend" name="username hidden" pattern="[a-z0-9._%+- ]{1,100}" />
+      </div>
+
+      <div class="mb-3 mt-3">
+        <button type="submit" class="btn btn-primary">Send request</button>
+      </div>
+      
+      <p style="color:black;">{{ response }}</p>
+    </form>
+    
+  </div>
+</div>
+
+<div class="container p-4">
+    <h1 style="color: rgba(33, 33, 33, 10);">Friends List</h1>
+
+    <div class="container p-3">
+
+        <table class="table">
+        <thead>
+            <tr style="color: rgba(33, 33, 33, 10);">
+            <th>Action</th>
+            <th>Username</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in friends %}
+            <tr style="color: rgba(33, 33, 33, 10);">
+            <!-- Actions -->
+            <td>
+                {% if user[0] == '0' %}
+                User already on project
+                {% elif user[0] == '1' %}
+                <a class="btn btn-success" id="button" role="button">Invite Sent</a>
+                {% else%}
+                <a class="btn btn-success" id="button" onclick="inviteFriendButton({{user[1].id}})" role="button">Add to Project</a>
+                {% endif %}
+            </td>
+            
+            <!-- Username -->
+            <td>{{ user[1].username }}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

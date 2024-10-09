@@ -1,0 +1,245 @@
+
+.popup {
+    position: relative;
+    text-align: right;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+  
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
+#alignStatus {
+
+  text-align: right;
+
+}
+
+#ToDoListId {
+  width: 630px;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  border: 3px solid #73AD21
+}
+
+h1 {
+  color:rgb(0, 0, 0);
+}
+
+div.scroll {
+  margin:4px, 4px;
+  padding:4px;
+  background-color: rgb(255, 255, 255);
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+div.scrollProjects {
+  margin:4px, 4px;
+  padding:4px;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+#modifyButton {
+  
+  display:table-cell;
+
+}
+
+#statusHelper {
+
+  padding:4px;
+  z-index: 1;
+  width: 450px;
+  position: relative;
+  border: 3px solid #032004;
+  background-color: rgb(215, 215, 215);
+
+}
+
+a {
+  color: #0060B6;
+  text-decoration: none;
+}
+
+
+/* Timeline css */
+
+body {
+  margin: 0;
+  padding: 0 20px;
+  color: #f98262;
+  background: #fffff0;
+}
+
+#timeline {
+  list-style: none;
+  width: 100%;
+  height: 200px;
+  margin: 10% 0 0;
+  border-top: 6px solid #BADA55;
+  display: table;
+  border-spacing: 30px 0;
+}
+#timeline li {
+  display: table-cell;
+  position: relative;
+  min-width: 100px;
+}
+
+.circle {
+  margin: 0 auto;
+  top: -14px;
+  left: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: #fffff0;
+  border: 6px solid #f98262;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+}
+
+.content {
+  text-align: center;
+  position: relative;
+}
+
+.avatar {
+  width: max-content;
+  height: max-content;
+  display: block;
+  /*remove border radius to make it rectangular
+  border-radius: 50%;*/
+  border: 6px solid #BADA55;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 30px;
+  background: #fffff0;
+}
+
+.content:before {
+  content: "";
+  width: 50px;
+  height: 100px;
+  left: 50%;
+  margin-left: -2px;
+  position: absolute;
+}
+
+li.down .content:before {
+  border-left: 4px solid #f98262;
+  border-bottom: 4px solid #f98262;
+  -webkit-border-radius: 0 20px;
+  -moz-border-radius: 0 20px;
+  border-radius: 0 20px;
+}
+li.down .avatar {
+  top: 80px;
+  left: 100px;
+}
+
+li.up .content {
+  margin-top: -106px;
+}
+li.up .content:before {
+  border-left: 4px solid #f98262;
+}
+li.up .date {
+  margin-top: 106px;
+}
+li.up .avatar {
+  background: #fffff0;
+  margin-top: -30px;
+}
+
+.rectangle {
+  border: 1px solid #f98262;
+  border-radius: 30px;
+  height: 30px;
+  width: 200px;
+  top: -19px;
+  position: relative;
+  background: #fffff0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.dotClickable {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#Charts {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  border: 3px solid #73AD21
+}
+
+#pieChart {
+  display:show;
+}
+
+#burnDownChart {
+  display:none;
+}

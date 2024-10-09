@@ -1,0 +1,51 @@
+{% extends "home.html" %}
+
+{% block task %}
+
+<div class="container p-3">
+  <h4>Add User Story</h4>
+  <form action="/newTask" method="post">
+    <!-- Task -->
+    <div class="mb-3 mt-3">
+      <label for="task">User Story name (keep it short):</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter task" name="name" required minlength="1" pattern="[a-z0-9._%+- ]{1,100}" />
+    </div>
+    <!-- Description -->
+    <div class="mb-3 mt-3">
+      <label>User story:</label>
+      <input type="text" class="form-control" id="description" placeholder="Description de la tâche" name="description" pattern="[a-z0-9._%+- ]{1,100}" />
+    </div>
+
+    <!-- Poker score -->
+    
+    <div class="mb-3 mt-3">
+
+      <!--
+      <label>Poker Score:</label>
+      <input type="text" class="form-control" id="pokerScore" placeholder="Enter complexity 1 to 89" name="pokerScore" pattern="[a-z0-9._%+- ]{1,100}" />
+      -->
+      <label>Poker score:</label>
+      {% for int in pokerPlan%}
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id ="pokerScore" name = "pokerScore" type="radio" required minlength="1"  value="{{int}}">
+        <label class="form-check-label" for="pokerScore">{{int}}</label>
+      </div>
+      {%endfor%}
+      
+
+    </div>
+
+      
+    <!-- Due Date -->
+    <div class="mb-3 mt-3">
+      <label>Due Date:</label>
+      <input type="date" id="time-date" name="time-date" data-date-format="DD-MM-YYYY" class = 'form-control' format="dd/mm/yyyy" placeholder="DD-MM-YYYY">
+    </div>
+    <div class="mb-3 mt-3">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

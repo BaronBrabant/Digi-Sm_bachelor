@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+
+{% block task %}
+
+<div class="container p-3">
+<h4>Add or Modify a Task</h4>
+<form action="/newTask" method="post">
+    <!-- ID -->
+    <div class="mb-3 mt-3">
+        <label for="id">Id:</label>
+        <input type="id" class="form-control" id="id" placeholder="Enter id" name="id" required minlength="1"/>
+        {% if validID == False %}
+        <p style="color:red">Error: id cannot be all spaces</p>
+        {% endif %}
+    </div>
+    <!-- TASK -->
+    <div class="mb-3">
+        <label for="task">Task:</label>
+        <input type="text" class="form-control" id="task" placeholder="Enter task" name="task" required minlength="1" pattern="[a-z0-9._%+- ]{1,100}" />
+        {% if validTask == False %}
+        <p style="color:red">Error: task cannot be all spaces</p>
+        {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+    <p>*If you use an id that already exists, you will rewrite its task.</p>
+</form>
+</div>
+
+{% endblock %}

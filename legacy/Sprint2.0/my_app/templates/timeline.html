@@ -1,0 +1,40 @@
+{% extends "toDoList.html" %}
+
+{%block timeline%}
+
+<ul id='timeline'>
+  {% for sprint in sprints%}
+    {% if sprint.id%2==0 %}
+      <li class='event up'>
+        <div class='content'>
+          <div class="avatar"><a class="nav-link" href="/load_sprint/{{sprint.id}}">Sprint {{sprint.id}}</a></div>
+        </div>
+      
+        <div class="dot">
+          <span class='circle'></span>
+        </div>
+        <div class='date'>{{sprint.creation}}</div>
+      </li>
+    {%else%}
+      <li class='event down'>
+        <div class='content'>
+          <div class="avatar"><a class="nav-link" href="/load_sprint/{{sprint.id}}">Sprint {{sprint.id}}</a></div>
+        </div>
+        <!--<li><a class="nav-link" href="/profile">Profile</a></li>-->
+        <div class="dot">
+          <span class='circle'></span>
+        </div>
+        <div class='date'>{{sprint.creation}}</div>
+      </li>
+    {%endif%}
+
+  {%endfor%}
+
+  <li class="last">
+    <div class="rectangle">
+      future sprints
+    </div>
+  </li>
+</ul>
+
+{%endblock%}

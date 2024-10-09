@@ -1,0 +1,365 @@
+
+.popup {
+    position: relative;
+    text-align: right;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+  
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
+#alignStatus {
+
+  text-align: right;
+
+}
+
+
+
+h1 {
+  color:rgb(0, 0, 0);
+}
+
+div.scroll {
+  margin:4px, 4px;
+  padding:4px;
+  background-color: rgb(255, 255, 255);
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+div.scrollOther {
+  margin:4px, 4px;
+  padding:4px;
+  background-color: rgb(255, 255, 255);
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+
+
+div.scrollProjects {
+  margin:4px, 4px;
+  padding:4px;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+#modifyButton {
+  
+  display:table-cell;
+
+}
+
+#textHelper {
+
+  margin-right:8%;
+  margin-left:8%;
+  margin-top: 5%;
+
+}
+
+#statusHelper {
+  padding:4px;
+  z-index: 1;
+  width: 30%;
+  margin-top: -30%;
+  position: relative;
+  border: 3px solid #032004;
+  background-image: url("./noteBookAiv3.png");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center; 
+  background-color: rgb(215, 215, 215);
+}
+
+#helperProjects {
+  padding:4px;
+  z-index: 1;
+  width: 30%;
+  position: relative;
+  border: 3px solid #032004;
+  background-image: url("./noteBookAiv3.png");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center; 
+  background-color: rgb(215, 215, 215);
+}
+
+#teamHelper {
+  padding:4px;
+  z-index: 1;
+  width: 30%;
+  margin-top: -35%;
+  position: relative;
+  border: 3px solid #032004;
+  background-image: url("./noteBookAiv3.png");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center; 
+  background-color: rgb(215, 215, 215);
+}
+
+#userStoryHelper {
+  padding:4px;
+  z-index: 1;
+  width: 30%;
+  margin-top: -50%;
+  position: relative;
+  border: 3px solid #032004;
+  background-image: url("./noteBookAiv3.png");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center; 
+  background-color: rgb(215, 215, 215);
+}
+
+.navbar-inverse .navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.navbar-brand img {
+  height: 100%;
+  margin-right: 20px;
+}
+
+a {
+  color: #0060B6;
+  text-decoration: none;
+}
+
+
+/* Timeline css */
+
+body {
+  margin: 0;
+  padding: 0 20px;
+  color: #f98262;
+  background: #FFFFF0;
+}
+
+#timeline {
+  list-style: none;
+  width: 100%;
+  height: 200px;
+  margin: 10% 0 0;
+  border-top: 6px solid #001F54;
+  display: table;
+  border-spacing: 30px 0;
+}
+#timeline li {
+  display: table-cell;
+  position: relative;
+  min-width: 100px;
+}
+
+
+.circle {
+  margin: 0 auto;
+  top: -14px;
+  left: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: #fffff0;
+  border: 6px solid #16161d;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+}
+
+.content {
+  text-align: center;
+  position: relative;
+}
+
+.avatar {
+  width: max-content;
+  height: max-content;
+  display: block;
+  /*remove border radius to make it rectangular
+  border-radius: 50%;*/
+  border: 6px solid #BADA55;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 30px;
+  background: #fffff0;
+}
+
+.content:before {
+  content: "";
+  width: 50px;
+  height: 100px;
+  left: 50%;
+  margin-left: -2px;
+  position: absolute;
+}
+
+li.down .content:before {
+  border-left: 4px solid #16161d;
+  border-bottom: 4px solid #16161d;
+  -webkit-border-radius: 0 20px;
+  -moz-border-radius: 0 20px;
+  border-radius: 0 20px;
+}
+li.down .avatar {
+  top: 80px;
+  left: 100px;
+}
+
+li.up .content {
+  margin-top: -106px;
+}
+li.up .content:before {
+  border-left: 4px solid #16161d;
+}
+li.up .date {
+  margin-top: 106px;
+}
+li.up .avatar {
+  background: #fffff0;
+  margin-top: -30px;
+}
+
+.rectangle {
+  border: 1px solid #f98262;
+  border-radius: 30px;
+  height: 30px;
+  width: 200px;
+  top: -19px;
+  position: relative;
+  background: #fffff0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.dotClickable {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#ToDoListId {
+  float: left;
+  
+  left: 5%;
+  border: 3px solid #73AD21
+}
+
+
+
+#father {
+  content:"";
+  display:table;
+  clear:both;
+  width:100%;
+}
+
+#column1 {
+  display: table-cell;
+  width: 50%;
+}
+
+#column2 {
+  display: table-cell;
+  width: 50%;
+}
+
+
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover .bells {
+  color: red;
+}
+
+.bells {
+  color: powderblue;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  color: white;
+}
+
+/* Drag and drop funct */
+
+/*
+#pieChart {
+  display:show;
+}
+
+#burnDownChart {
+  display:none;
+}
+*/

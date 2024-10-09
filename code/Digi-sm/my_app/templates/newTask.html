@@ -1,0 +1,75 @@
+{% extends "home.html" %}
+
+{% block newTask %}
+
+<div class="container p-3" style="color: rgba(33, 33, 33, 10);">
+  <h4>Add User Story<span><a class="fa fa-question-circle-o" href="/helperMessage/7" role="button"></a></span></h4>
+  <form action="/newTask" method="post">
+    <!-- Task -->
+    <div class="mb-3 mt-3">
+      <label for="task">User Story name (keep it short):</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter task" name="name" required minlength="1" pattern="[a-z0-9._%+- ]{1,100}" />
+    </div>
+    <!-- Description -->
+    <div class="mb-3 mt-3">
+      <label>User story:</label>
+      <input type="text" class="form-control" id="description" placeholder="Description of the user story" name="description" pattern="[a-z0-9._%+- ]{1,100}" />
+    </div>
+
+    <!-- Poker score -->
+    
+
+
+      <!--
+      <label>Poker Score:</label>
+      <input type="text" class="form-control" id="pokerScore" placeholder="Enter complexity 1 to 89" name="pokerScore" pattern="[a-z0-9._%+- ]{1,100}" />
+      -->
+      <div class="mb-3 mt-3">
+        <label>Poker Score:</label>
+        <input type="text" class="form-control" id="pokerScore" required minlength="1" placeholder="Enter a number for the Poker Score, any number is valid but usually it follows the pattern bellow" name="pokerScore" pattern="[0-9]+" maxlength="2" />
+      </div>
+      {% for int in pokerPlan%}
+      <div class="form-check form-check-inline">
+    
+        <label class="form-check-label" for="pokerScore">{{int}}</label>
+      </div>
+      {%endfor%}
+      
+
+
+    <div class="mb-3 mt-3">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="container p-3 scrollOther">
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Poker Score</th>
+        <th>Sprints</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for task in toDo_list %}
+      <tr>
+        <td>{{ task.name }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.pokerScore }}</td>
+        <td>{{sprintsInt[loop.index-1]}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+</div>
+
+
+{% endblock %}

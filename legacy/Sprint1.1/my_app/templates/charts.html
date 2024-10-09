@@ -1,0 +1,70 @@
+{%extends "timeline.html"%}
+
+
+{%block chart%}
+
+<div id="Charts">
+
+    
+
+    <!--
+    <canvas id = "pieChart" style ="width:250%; max-width: 700x"></canvas>
+    <canvas id = "burnDownChart" style ="width:250%; max-width: 700x"></canvas>
+    
+
+    <script>
+      var xValues = ["Done", "To Do", "Doing"];
+      var yValues = [{{nb_tot-nb_toDo-nb_Doing}}, {{nb_toDo}}, {{nb_Doing}}];
+      var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+      ];
+      
+      new Chart("pieChart", {
+        type: "pie",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Sprint task data"
+          }
+        }
+      });
+
+
+        var xValues = [50,60,70,80,90,100,110,120,130,140,150];
+        var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+
+        new Chart("burnDownChart", {
+        type: "line",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: "rgba(0,0,0,1.0)",
+            borderColor: "rgba(0,0,0,0.1)",
+            data: yValues
+            }]
+        }
+        });
+    </script>
+    -->
+
+  <div style="text-align:center">
+    
+      <span class="dotClickable" id="burnDownChartButton"></span>
+      <span class="dotClickable" id="pieChartButton"></span>
+
+  </div>
+
+    
+</div>
+
+
+{%endblock%}
